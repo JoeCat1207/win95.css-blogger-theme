@@ -11,6 +11,16 @@
 Win95 Blogger Theme
 ----------------------------------------------- */
 
+/*
+Variable definitions:
+<Variable name="body.background.color" description="Desktop Color" type="color" default="#008080" value="#008080"/>
+<Variable name="body.background" description="Desktop Background" type="background" color="$(body.background.color)" default="$(color) none repeat scroll top left" value="$(color) none repeat scroll top left"/>
+<Variable name="window.background.color" description="Window Color" type="color" default="#c0c0c0" value="#c0c0c0"/>
+<Variable name="title.background.color" description="Title Bar Color" type="color" default="#000080" value="#000080"/>
+<Variable name="title.text.color" description="Title Bar Text" type="color" default="#ffffff" value="#ffffff"/>
+<Variable name="link.color" description="Link Color" type="color" default="#0000ee" value="#0000ee"/>
+*/
+
 html {
   min-height: 100%;
 }
@@ -19,7 +29,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 18px 18px 46px;
-  background: #008080;
+  background: $body.background;
   color: #111111;
   font-family: "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
   font-size: 14px;
@@ -27,7 +37,7 @@ body {
 }
 
 a {
-  color: #0000ee;
+  color: $link.color;
 }
 
 img {
@@ -69,7 +79,7 @@ img {
 .comments,
 .blog-pager,
 .status-panel {
-  background: #c0c0c0;
+  background: $window.background.color;
   color: #111111;
   border: 2px solid;
   border-top-color: #ffffff;
@@ -87,8 +97,8 @@ img {
   min-height: 24px;
   margin: 0;
   padding: 3px 8px 4px;
-  background: #000080;
-  color: #ffffff;
+  background: $title.background.color;
+  color: $title.text.color;
   font-size: 14px;
   font-weight: bold;
   line-height: 1.2;
@@ -114,7 +124,7 @@ img {
   width: 16px;
   height: 14px;
   margin-left: 3px;
-  background: #c0c0c0;
+  background: $window.background.color;
   color: #111111;
   border: 2px solid;
   border-top-color: #ffffff;
@@ -128,6 +138,9 @@ img {
 
 .win-body,
 .widget-content,
+.header .widget-content,
+.top-menu .widget-content,
+.footer .widget-content,
 .post-body,
 .comments .comments-content,
 .status-panel {
@@ -158,6 +171,16 @@ img {
 .site-description {
   margin: 6px 0 0;
   color: #333333;
+}
+
+#layout-top,
+#layout-footer {
+  clear: both;
+}
+
+.top-menu .widget,
+.footer .widget {
+  margin-bottom: 18px;
 }
 
 #content-wrapper {
@@ -221,6 +244,11 @@ img {
   border: 2px inset #d0d0d0;
 }
 
+.post-body img {
+  max-width: 100%;
+  height: auto;
+}
+
 .post-body blockquote {
   margin: 12px 0;
   padding: 10px 12px;
@@ -256,7 +284,7 @@ img {
   display: inline-block;
   min-height: 24px;
   padding: 2px 10px 4px;
-  background: #c0c0c0;
+  background: $window.background.color;
   color: #111111;
   text-decoration: none;
   border: 2px solid;
@@ -300,6 +328,21 @@ img {
   margin-top: 18px;
 }
 
+.comment {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dotted #808080;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-timestamp {
+  color: #555555;
+  font-size: 12px;
+}
+
 .comments .comments-content {
   margin: 12px;
   background: #ffffff;
@@ -314,7 +357,7 @@ img {
   z-index: 20;
   height: 34px;
   padding: 3px 8px;
-  background: #c0c0c0;
+  background: $window.background.color;
   border-top: 2px solid #ffffff;
   box-shadow: 0 -1px 0 #808080;
   overflow: hidden;
@@ -325,7 +368,7 @@ img {
   min-height: 26px;
   margin-right: 8px;
   padding: 2px 10px 3px;
-  background: #c0c0c0;
+  background: $window.background.color;
   color: #111111;
   border: 2px solid;
   border-top-color: #ffffff;
@@ -407,22 +450,111 @@ img {
       </a>
     </div>
 
-    <div class='win-window' id='site-header'>
-      <div class='win-title'>
-        <span class='title-text'><data:blog.title/>.exe</span>
-        <span class='window-controls'><span>_</span><span>[]</span><span>x</span></span>
-      </div>
-      <div class='win-body'>
-        <img alt='' class='site-icon' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/internet_connection_wiz-5.png'/>
-        <h1 class='site-title'><data:blog.title/></h1>
-        <p class='site-description'><data:blog.description/></p>
-      </div>
+    <b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
+      <b:widget id='Header1' locked='false' title='Header' type='Header'>
+        <b:includable id='main'>
+          <div class='win-window' id='site-header'>
+            <div class='win-title'>
+              <span class='title-text'><data:title/>.exe</span>
+              <span class='window-controls'><span>_</span><span>[]</span><span>x</span></span>
+            </div>
+            <div class='win-body'>
+              <img alt='' class='site-icon' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/internet_connection_wiz-5.png'/>
+              <h1 class='site-title'><a expr:href='data:blog.homepageUrl'><data:title/></a></h1>
+              <p class='site-description'><data:description/></p>
+            </div>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <div id='layout-top'>
+      <b:section class='top-menu' id='top-menu' maxwidgets='3' showaddelement='yes'>
+      </b:section>
     </div>
 
     <div id='content-wrapper'>
       <div id='main-wrapper'>
         <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
-          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'/>
+          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+            <b:includable id='main'>
+              <div class='blog-posts hfeed'>
+                <b:loop values='data:posts' var='post'>
+                  <b:include data='post' name='post'/>
+                </b:loop>
+              </div>
+              <b:include name='nextprev'/>
+            </b:includable>
+
+            <b:includable id='post' var='post'>
+              <b:if cond='data:post.dateHeader'>
+                <h2 class='date-header'><data:post.dateHeader/></h2>
+              </b:if>
+              <div class='post hentry'>
+                <b:if cond='data:post.title'>
+                  <h2 class='post-title entry-title'>
+                    <a expr:href='data:post.url'><data:post.title/></a>
+                  </h2>
+                </b:if>
+                <div class='post-header'>
+                  <span class='byline'>Posted by <data:post.author/></span>
+                  <span class='post-timestamp'> | <data:post.timestamp/></span>
+                </div>
+                <div class='post-body entry-content'>
+                  <data:post.body/>
+                </div>
+                <div class='post-footer'>
+                  <b:if cond='data:post.labels'>
+                    <span class='post-labels'>
+                      Labels:
+                      <b:loop values='data:post.labels' var='label'>
+                        <a expr:href='data:label.url'><data:label.name/></a>
+                      </b:loop>
+                    </span>
+                  </b:if>
+                  <b:if cond='data:post.allowComments'>
+                    <a expr:href='data:post.addCommentUrl'><data:post.numComments/> comments</a>
+                  </b:if>
+                  <b:if cond='data:post.editUrl'>
+                    <a expr:href='data:post.editUrl'>Edit</a>
+                  </b:if>
+                </div>
+              </div>
+              <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                <b:include data='post' name='comments'/>
+              </b:if>
+            </b:includable>
+
+            <b:includable id='comments' var='post'>
+              <b:if cond='data:post.allowComments'>
+                <div class='comments' id='comments'>
+                  <h4><data:post.numComments/> comments</h4>
+                  <div class='comments-content'>
+                    <b:loop values='data:post.comments' var='comment'>
+                      <div class='comment'>
+                        <div class='comment-author'><data:comment.author/></div>
+                        <div class='comment-timestamp'><data:comment.timestamp/></div>
+                        <div class='comment-body'><data:comment.body/></div>
+                      </div>
+                    </b:loop>
+                    <p><a expr:href='data:post.addCommentUrl'>Add a comment</a></p>
+                  </div>
+                </div>
+              </b:if>
+            </b:includable>
+
+            <b:includable id='nextprev'>
+              <div class='blog-pager' id='blog-pager'>
+                <b:if cond='data:newerPageUrl'>
+                  <a class='newer-link' expr:href='data:newerPageUrl'><data:newerPageTitle/></a>
+                </b:if>
+                <a class='home-link' expr:href='data:blog.homepageUrl'>Home</a>
+                <b:if cond='data:olderPageUrl'>
+                  <a class='older-link' expr:href='data:olderPageUrl'><data:olderPageTitle/></a>
+                </b:if>
+              </div>
+            </b:includable>
+          </b:widget>
         </b:section>
       </div>
 
@@ -434,6 +566,11 @@ img {
         <b:section class='sidebar' id='sidebar' maxwidgets='8' showaddelement='yes'>
         </b:section>
       </div>
+    </div>
+
+    <div id='layout-footer'>
+      <b:section class='footer' id='footer' maxwidgets='3' showaddelement='yes'>
+      </b:section>
     </div>
   </div>
 
