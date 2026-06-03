@@ -1,52 +1,22 @@
+# Win95 Blogger Theme
 
-<p align="center">
-    <a href="https://alexbsoft.github.io/win95.css/">
-        <img src="https://i.imgur.com/kbXAcTA.png">
-    </a>
-</p>
+A small Blogger theme with a Windows 95 desktop look: teal background, chunky grey windows, blue title bars, desktop icons, a sidebar, and a fixed taskbar.
 
-# Win95.CSS
+## Install
 
-Make your bootstrap look like Windows 95/98.
-<p align="center">
-    <a href="https://alexbsoft.github.io/win95.css/personal_page.html">
-        <img src="https://i.imgur.com/vP9AzdG.png">
-    </a>
-</p>
+1. Download or clone this repo.
+2. In Blogger, open the blog you want to change.
+3. Go to **Theme** and download a backup of your current theme first.
+4. Use the Theme menu's restore/upload option and pick `win95-blogger-theme.xml`.
+5. Open **Layout** and adjust the sidebar gadgets. Profile, Archive, Labels, and HTML gadgets fit the theme best.
 
-- [Demo](https://alexbsoft.github.io/win95.css/)
-- Documentation will be soon.
+## Notes
 
-### Sponsored by
+- Upload only `win95-blogger-theme.xml`; the old demo HTML files are just from the original win95.css project.
+- The theme uses a few icons from this repo through jsDelivr, so the blog can show the desktop icons without separately uploading image files.
+- For the About desktop icon, create a Blogger page at `/p/about.html` or edit that link in the XML.
+- For the Notes desktop icon, add a `notes` label to any posts you want listed there.
 
-<a href="https://bomjar.ga">
-<img src="https://bomjar.ga/assets/logo.png">Bomjar.ga</a>- $1 unlimited PHP hosting
+## Tweaking
 
-## Features
-
-- Windows 95 button styles
-
-- Windows 98 cards
-
-- Windows 98 icons (256-color)
-
-- Fully Responsive
-
-- Bootstrap 4
-
-
-## Some screenshots
-
-![](https://i.imgur.com/AgQonjb.png)
-
-### How your sites can be:
-
-![](https://i.imgur.com/rTDXYOE.png)
-
-![](https://i.imgur.com/mea9LmK.png)
-
-
-## Sources:
-
-- Webamp https://github.com/captbaritone/webamp
-- Clippy.js https://www.smore.com/clippy-js
+Most of the styling lives inside the `<b:skin>` block in `win95-blogger-theme.xml`. Search for the CSS variables near the top if you want to change the desktop color, title bar, or window colors.
