@@ -10,6 +10,8 @@ A small Blogger theme with a Windows 95 desktop look: teal background, chunky gr
 4. Use the Theme menu's restore/upload option and pick `win95-blogger-theme.xml`.
 5. Open **Layout** and adjust the sidebar gadgets. Profile, Archive, Labels, and HTML gadgets fit the theme best.
 
+If Blogger says it could not restore the theme, apply one of Blogger's built-in second-generation themes first, then try restoring this XML again. That usually clears old locked gadget conflicts.
+
 ## Notes
 
 - Upload only `win95-blogger-theme.xml`; the old demo HTML files are just from the original win95.css project.

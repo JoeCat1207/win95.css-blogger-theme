@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:version='2' class='win95-blogger' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
   <b:include data='blog' name='all-head-content'/>
@@ -11,40 +11,23 @@
 Win95 Blogger Theme
 ----------------------------------------------- */
 
-:root {
-  --desktop: #008080;
-  --window: #c0c0c0;
-  --shadow: #404040;
-  --dark: #000;
-  --light: #fff;
-  --mid: #808080;
-  --title-start: #000080;
-  --title-end: #1084d0;
-  --link: #0000ee;
-  --asset-root: "https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets";
-}
-
-* {
-  box-sizing: border-box;
-}
-
 html {
   min-height: 100%;
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0;
   padding: 18px 18px 46px;
-  background: var(--desktop);
-  color: #111;
+  background: #008080;
+  color: #111111;
   font-family: "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.45;
 }
 
 a {
-  color: var(--link);
+  color: #0000ee;
 }
 
 img {
@@ -52,31 +35,25 @@ img {
   height: auto;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-.desktop {
-  width: min(1180px, 100%);
+#desktop-wrapper {
+  width: 100%;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
-.desktop-icons {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
+#desktop-icons {
+  overflow: hidden;
   margin: 0 0 16px;
 }
 
 .desktop-icon {
+  float: left;
   width: 76px;
-  color: #fff;
+  margin: 0 18px 12px 0;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
-  text-shadow: 1px 1px #000;
+  text-shadow: 1px 1px #000000;
 }
 
 .desktop-icon img {
@@ -84,14 +61,6 @@ select {
   width: 32px;
   height: 32px;
   margin: 0 auto 6px;
-  image-rendering: pixelated;
-}
-
-.shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 18px;
-  align-items: start;
 }
 
 .win-window,
@@ -100,28 +69,28 @@ select {
 .comments,
 .blog-pager,
 .status-panel {
-  background: var(--window);
-  color: #111;
+  background: #c0c0c0;
+  color: #111111;
   border: 2px solid;
-  border-top-color: var(--light);
-  border-left-color: var(--light);
-  border-right-color: var(--shadow);
-  border-bottom-color: var(--shadow);
-  box-shadow: 1px 1px 0 var(--dark);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  box-shadow: 1px 1px 0 #000000;
 }
 
 .win-title,
-.widget > h2,
+.widget h2,
 .post-title,
 .date-header,
 .comments h4 {
   min-height: 24px;
   margin: 0;
   padding: 3px 8px 4px;
-  background: linear-gradient(90deg, var(--title-start), var(--title-end));
-  color: #fff;
+  background: #000080;
+  color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -129,31 +98,32 @@ select {
 }
 
 .win-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  overflow: hidden;
+}
+
+.title-text {
+  float: left;
 }
 
 .window-controls {
-  display: inline-flex;
-  gap: 3px;
+  float: right;
 }
 
 .window-controls span {
-  display: grid;
-  place-items: center;
+  display: inline-block;
   width: 16px;
   height: 14px;
-  background: var(--window);
-  color: #111;
+  margin-left: 3px;
+  background: #c0c0c0;
+  color: #111111;
   border: 2px solid;
-  border-top-color: var(--light);
-  border-left-color: var(--light);
-  border-right-color: var(--shadow);
-  border-bottom-color: var(--shadow);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
   font-size: 10px;
-  line-height: 1;
+  line-height: 10px;
+  text-align: center;
 }
 
 .win-body,
@@ -164,43 +134,52 @@ select {
   padding: 12px;
 }
 
-.site-header .win-body {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
+#site-header {
+  margin-bottom: 18px;
 }
 
-.site-header img {
+#site-header .win-body {
+  overflow: hidden;
+}
+
+.site-icon {
+  float: left;
   width: 48px;
   height: 48px;
-  image-rendering: pixelated;
+  margin-right: 12px;
 }
 
 .site-title {
   margin: 0;
-  font-size: clamp(24px, 4vw, 42px);
+  font-size: 38px;
   line-height: 1.05;
 }
 
 .site-description {
   margin: 6px 0 0;
-  color: #333;
+  color: #333333;
 }
 
-.main-column,
-.sidebar-column {
-  display: grid;
-  gap: 18px;
+#content-wrapper {
+  overflow: hidden;
 }
 
-.main-section,
-.sidebar-section {
-  display: grid;
-  gap: 18px;
+#main-wrapper {
+  float: left;
+  width: 68%;
+}
+
+#sidebar-wrapper {
+  float: right;
+  width: 29%;
+}
+
+.section {
+  margin: 0;
 }
 
 .widget {
+  margin: 0 0 18px;
   overflow: hidden;
 }
 
@@ -210,11 +189,12 @@ select {
   padding-left: 20px;
 }
 
-.widget li + li {
+.widget li {
   margin-top: 6px;
 }
 
 .post {
+  margin: 0 0 18px;
   overflow: hidden;
 }
 
@@ -223,7 +203,7 @@ select {
 }
 
 .post-title a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -231,21 +211,21 @@ select {
 .post-footer,
 .byline,
 .post-timestamp {
-  color: #333;
+  color: #333333;
   font-size: 12px;
 }
 
 .post-body {
-  background: #fff;
-  border: 2px inset #d0d0d0;
   margin: 12px;
+  background: #ffffff;
+  border: 2px inset #d0d0d0;
 }
 
 .post-body blockquote {
   margin: 12px 0;
   padding: 10px 12px;
   background: #ffffe1;
-  border: 1px solid var(--mid);
+  border: 1px solid #808080;
 }
 
 .post-body pre,
@@ -256,8 +236,8 @@ select {
 .post-body pre {
   overflow: auto;
   padding: 10px;
-  background: #000;
-  color: #0f0;
+  background: #000000;
+  color: #00ff00;
 }
 
 .post-footer {
@@ -265,59 +245,55 @@ select {
 }
 
 .blog-pager {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  margin: 0 0 18px;
   padding: 10px;
+  overflow: hidden;
 }
 
 .blog-pager a,
-.button-95,
-.Profile a.profile-link,
-.post-footer a {
+.post-footer a,
+.profile-link {
   display: inline-block;
   min-height: 24px;
   padding: 2px 10px 4px;
-  background: var(--window);
-  color: #111;
+  background: #c0c0c0;
+  color: #111111;
   text-decoration: none;
   border: 2px solid;
-  border-top-color: var(--light);
-  border-left-color: var(--light);
-  border-right-color: var(--shadow);
-  border-bottom-color: var(--shadow);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
 }
 
 .blog-pager a:active,
-.button-95:active,
-.Profile a.profile-link:active,
-.post-footer a:active {
-  border-top-color: var(--shadow);
-  border-left-color: var(--shadow);
-  border-right-color: var(--light);
-  border-bottom-color: var(--light);
+.post-footer a:active,
+.profile-link:active {
+  border-top-color: #404040;
+  border-left-color: #404040;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .Label a {
   display: inline-block;
   margin: 0 4px 6px 0;
   padding: 1px 7px 3px;
-  background: #fff;
-  border: 1px solid var(--mid);
+  background: #ffffff;
+  border: 1px solid #808080;
 }
 
 .status-panel {
-  display: grid;
-  grid-template-columns: 20px minmax(0, 1fr);
-  gap: 8px;
-  align-items: start;
+  margin-bottom: 18px;
   font-size: 13px;
+  overflow: hidden;
 }
 
 .status-panel img {
+  float: left;
   width: 16px;
   height: 16px;
-  margin-top: 2px;
+  margin: 2px 8px 0 0;
 }
 
 .comments {
@@ -325,42 +301,38 @@ select {
 }
 
 .comments .comments-content {
-  background: #fff;
   margin: 12px;
+  background: #ffffff;
   border: 2px inset #d0d0d0;
 }
 
-.taskbar {
+#taskbar {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 8px;
-  align-items: center;
   height: 34px;
   padding: 3px 8px;
-  background: var(--window);
-  border-top: 2px solid var(--light);
-  box-shadow: 0 -1px 0 var(--mid);
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  box-shadow: 0 -1px 0 #808080;
+  overflow: hidden;
 }
 
 .start-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  float: left;
   min-height: 26px;
+  margin-right: 8px;
   padding: 2px 10px 3px;
-  background: var(--window);
-  color: #111;
+  background: #c0c0c0;
+  color: #111111;
   border: 2px solid;
-  border-top-color: var(--light);
-  border-left-color: var(--light);
-  border-right-color: var(--shadow);
-  border-bottom-color: var(--shadow);
-  font-weight: 700;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -368,11 +340,13 @@ select {
 .task-button img {
   width: 16px;
   height: 16px;
-  image-rendering: pixelated;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 .task-button {
-  min-width: 0;
+  display: block;
+  margin: 0 92px 0 92px;
   padding: 3px 8px;
   border: 2px inset #d0d0d0;
   white-space: nowrap;
@@ -381,124 +355,98 @@ select {
 }
 
 .clock {
+  float: right;
+  width: 74px;
   padding: 3px 8px;
   border: 2px inset #d0d0d0;
-  white-space: nowrap;
+  text-align: center;
 }
 
-::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
-}
-
-::-webkit-scrollbar-track {
-  background: #c0c0c0;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  border: 2px solid;
-  border-top-color: var(--light);
-  border-left-color: var(--light);
-  border-right-color: var(--shadow);
-  border-bottom-color: var(--shadow);
-}
-
-@media (max-width: 860px) {
+@media screen and (max-width: 860px) {
   body {
     padding: 12px 12px 46px;
   }
 
-  .shell {
-    grid-template-columns: 1fr;
-  }
-
-  .desktop-icons {
-    gap: 10px;
-  }
-
   .desktop-icon {
     width: 68px;
+    margin-right: 10px;
     font-size: 12px;
   }
 
-  .site-header .win-body {
-    grid-template-columns: 40px minmax(0, 1fr);
-  }
-
-  .site-header img {
+  .site-icon {
     width: 40px;
     height: 40px;
   }
 
-  .taskbar {
-    grid-template-columns: auto minmax(80px, 1fr) auto;
+  .site-title {
+    font-size: 28px;
+  }
+
+  #main-wrapper,
+  #sidebar-wrapper {
+    float: none;
+    width: auto;
   }
 }
   ]]></b:skin>
 </head>
 <body>
-  <div class='desktop'>
-    <div class='desktop-icons' role='navigation'>
+  <div id='desktop-wrapper'>
+    <div id='desktop-icons'>
       <a class='desktop-icon' expr:href='data:blog.homepageUrl'>
         <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/computer-3.png'/>
         <span>My Blog</span>
       </a>
-      <a class='desktop-icon' expr:href='data:blog.homepageUrl + &quot;search/label/notes&quot;'>
+      <a class='desktop-icon' href='/search/label/notes'>
         <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/directory_open_file_mydocs-4.png'/>
         <span>Notes</span>
       </a>
-      <a class='desktop-icon' expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>
+      <a class='desktop-icon' href='/p/about.html'>
         <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/help_book_cool-4.png'/>
         <span>About</span>
       </a>
     </div>
 
-    <header class='site-header win-window'>
+    <div class='win-window' id='site-header'>
       <div class='win-title'>
-        <span><data:blog.title/>.exe</span>
-        <span class='window-controls' aria-hidden='true'><span>_</span><span>□</span><span>x</span></span>
+        <span class='title-text'><data:blog.title/>.exe</span>
+        <span class='window-controls'><span>_</span><span>[]</span><span>x</span></span>
       </div>
       <div class='win-body'>
-        <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/internet_connection_wiz-5.png'/>
-        <div>
-          <h1 class='site-title'><data:blog.title/></h1>
-          <p class='site-description'><data:blog.description/></p>
-        </div>
+        <img alt='' class='site-icon' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/internet_connection_wiz-5.png'/>
+        <h1 class='site-title'><data:blog.title/></h1>
+        <p class='site-description'><data:blog.description/></p>
       </div>
-    </header>
+    </div>
 
-    <main class='shell'>
-      <section class='main-column'>
-        <b:section class='main-section' id='main' maxwidgets='1' showaddelement='no'>
-          <b:widget id='Blog1' locked='true' title='Posts' type='Blog' visible='true'/>
+    <div id='content-wrapper'>
+      <div id='main-wrapper'>
+        <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'/>
         </b:section>
-      </section>
+      </div>
 
-      <aside class='sidebar-column'>
+      <div id='sidebar-wrapper'>
         <div class='status-panel'>
           <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/msg_information-0.png'/>
-          <span>Tip: add Profile, Labels, Archive, or HTML gadgets here from Layout.</span>
+          <span>Add Profile, Labels, Archive, or HTML gadgets here from Layout.</span>
         </div>
-        <b:section class='sidebar-section' id='sidebar' maxwidgets='8' showaddelement='yes'>
-          <b:widget id='Profile1' locked='false' title='About' type='Profile' visible='true'/>
-          <b:widget id='BlogArchive1' locked='false' title='Archive' type='BlogArchive' visible='true'/>
-          <b:widget id='Label1' locked='false' title='Labels' type='Label' visible='true'/>
+        <b:section class='sidebar' id='sidebar' maxwidgets='8' showaddelement='yes'>
         </b:section>
-      </aside>
-    </main>
+      </div>
+    </div>
   </div>
 
-  <footer class='taskbar'>
+  <div id='taskbar'>
     <a class='start-button' expr:href='data:blog.homepageUrl'>
       <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/windows-0.png'/>
       <span>Start</span>
     </a>
+    <div class='clock'>Online</div>
     <div class='task-button'>
       <img alt='' src='https://cdn.jsdelivr.net/gh/JoeCat1207/win95.css-blogger-theme@master/assets/icons/html-0.png'/>
       <span><data:blog.pageTitle/></span>
     </div>
-    <div class='clock'>Online</div>
-  </footer>
+  </div>
 </body>
 </html>
