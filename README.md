@@ -12,6 +12,8 @@ A small Blogger theme with a Windows 95 desktop look: teal background, chunky gr
 
 If Blogger says it could not restore the theme, apply one of Blogger's built-in second-generation themes first, then try restoring this XML again. That usually clears old locked gadget conflicts.
 
+If you installed an earlier copy and the Blog Posts gadget is missing from Layout, replace the full template HTML with the latest `win95-blogger-theme.xml`.
+
 ## Notes
 
 - Upload only `win95-blogger-theme.xml`; the old demo HTML files are just from the original win95.css project.

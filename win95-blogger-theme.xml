@@ -14,7 +14,7 @@ Win95 Blogger Theme
 /*
 Variable definitions:
 <Variable name="body.background.color" description="Desktop Color" type="color" default="#008080" value="#008080"/>
-<Variable name="body.background" description="Desktop Background" type="background" color="$(body.background.color)" default="$(color) none repeat scroll top left" value="$(color) none repeat scroll top left"/>
+<Variable name="body.background" description="Desktop Background" type="background" color="$(body.background.color)" default="#008080 none repeat scroll top left" value="#008080 none repeat scroll top left"/>
 <Variable name="window.background.color" description="Window Color" type="color" default="#c0c0c0" value="#c0c0c0"/>
 <Variable name="title.background.color" description="Title Bar Color" type="color" default="#000080" value="#000080"/>
 <Variable name="title.text.color" description="Title Bar Text" type="color" default="#ffffff" value="#ffffff"/>
@@ -29,6 +29,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 18px 18px 46px;
+  background-color: $body.background.color;
   background: $body.background;
   color: #111111;
   font-family: "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
@@ -451,7 +452,7 @@ img {
     </div>
 
     <b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
-      <b:widget id='Header1' locked='false' title='Header' type='Header'>
+      <b:widget id='Header1' locked='no' mobile='yes' title='Header' type='Header' version='1' visible='true'>
         <b:includable id='main'>
           <div class='win-window' id='site-header'>
             <div class='win-title'>
@@ -469,14 +470,14 @@ img {
     </b:section>
 
     <div id='layout-top'>
-      <b:section class='top-menu' id='top-menu' maxwidgets='3' showaddelement='yes'>
+      <b:section class='top-menu' id='topmenu' maxwidgets='3' showaddelement='yes'>
       </b:section>
     </div>
 
     <div id='content-wrapper'>
       <div id='main-wrapper'>
-        <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
-          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+        <b:section class='main' id='main' maxwidgets='1' showaddelement='yes'>
+          <b:widget id='Blog1' locked='no' mobile='yes' title='Blog Posts' type='Blog' version='1' visible='true'>
             <b:includable id='main'>
               <div class='blog-posts hfeed'>
                 <b:loop values='data:posts' var='post'>
