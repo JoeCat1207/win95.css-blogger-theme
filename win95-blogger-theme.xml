@@ -696,6 +696,7 @@ a:visited {
   margin: 0 0 18px;
   background: #c0c0c0 !important;
   color: #111111 !important;
+  box-sizing: border-box;
   border: 2px solid;
   border-top-color: #ffffff;
   border-left-color: #ffffff;
@@ -703,6 +704,17 @@ a:visited {
   border-bottom-color: #404040;
   box-shadow: 1px 1px 0 #000000;
   overflow: hidden;
+}
+
+.Header *,
+.tabs-inner .widget *,
+.Blog *,
+.main .FeaturedPost *,
+.main .PopularPosts *,
+.sidebar .widget *,
+.foot .widget *,
+.status-msg-wrap * {
+  box-sizing: border-box;
 }
 
 .Header:before,
@@ -771,6 +783,9 @@ h2.date-header,
 .Blog .post-outer,
 .post,
 .main .FeaturedPost .post-summary {
+  display: block;
+  width: auto !important;
+  max-width: none !important;
   margin: 12px;
   padding: 0;
   background: #ffffff !important;
@@ -789,6 +804,8 @@ h3.post-title a,
   color: #0000ee !important;
   font: bold 22px "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif !important;
   text-decoration: underline;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .post-header,
@@ -826,9 +843,26 @@ h3.post-title a,
 }
 
 .main .PopularPosts .widget-content {
+  display: block;
+  width: auto !important;
+  max-width: none !important;
+  margin: 12px;
+  padding: 12px;
   background: #ffffff !important;
   color: #111111 !important;
   border: 2px inset #d0d0d0;
+  overflow: hidden;
+}
+
+.main .PopularPosts ul,
+.main .PopularPosts li {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.main .PopularPosts .item-title,
+.main .PopularPosts .item-snippet {
+  overflow-wrap: break-word;
 }
 
 .post-body img {
