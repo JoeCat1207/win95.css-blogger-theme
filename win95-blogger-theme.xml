@@ -688,6 +688,8 @@ a:visited {
 .Header,
 .tabs-inner .widget,
 .Blog,
+.main .FeaturedPost,
+.main .PopularPosts,
 .sidebar .widget,
 .foot .widget,
 .status-msg-wrap {
@@ -706,6 +708,8 @@ a:visited {
 .Header:before,
 .tabs-inner .widget h2,
 .Blog:before,
+.main .FeaturedPost h2,
+.main .PopularPosts h2,
 .sidebar .widget h2,
 .foot .widget h2,
 h2.date-header,
@@ -734,6 +738,8 @@ h2.date-header,
 
 .Header #header-inner,
 .tabs-inner .widget-content,
+.main .FeaturedPost .post-summary,
+.main .PopularPosts .widget-content,
 .sidebar .widget-content,
 .foot .widget-content {
   padding: 12px;
@@ -763,7 +769,8 @@ h2.date-header,
 }
 
 .Blog .post-outer,
-.post {
+.post,
+.main .FeaturedPost .post-summary {
   margin: 12px;
   padding: 0;
   background: #ffffff !important;
@@ -774,7 +781,9 @@ h2.date-header,
 .post h3.post-title,
 .post h3.post-title a,
 h3.post-title,
-h3.post-title a {
+h3.post-title a,
+.main .FeaturedPost h3,
+.main .FeaturedPost h3 a {
   margin: 0;
   padding: 10px 12px 4px;
   color: #0000ee !important;
@@ -797,6 +806,29 @@ h3.post-title a {
   border: 0;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.main .FeaturedPost .post-summary p {
+  margin: 0;
+  padding: 8px 12px 12px;
+  color: #111111 !important;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.main .FeaturedPost .post-summary .image {
+  display: block;
+  width: calc(100% - 24px) !important;
+  max-width: 320px;
+  height: auto;
+  margin: 0 12px 12px;
+  border: 2px inset #d0d0d0;
+}
+
+.main .PopularPosts .widget-content {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 2px inset #d0d0d0;
 }
 
 .post-body img {
